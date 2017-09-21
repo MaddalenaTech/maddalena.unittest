@@ -14,3 +14,4 @@ D:\Maddalena\API\TEST\MaddalenaUnitTest\bin\Debug\Microsoft.VisualStudio.TestPla
 D:\Maddalena\API\TEST\MaddalenaUnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
 D:\Maddalena\API\TEST\MaddalenaUnitTest\obj\Debug\MaddalenaUnitTest.dll
 D:\Maddalena\API\TEST\MaddalenaUnitTest\obj\Debug\MaddalenaUnitTest.pdb
+D:\Maddalena\API\TEST\MaddalenaUnitTest\obj\Debug\MaddalenaUnitTest.csprojResolveAssemblyReference.cache

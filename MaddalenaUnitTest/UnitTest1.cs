@@ -11,7 +11,7 @@ namespace MaddalenaUnitTest
 
         public UnitTest1()
         {
-            var apikeys = new ApiKeyServiceClient();
+            var apikeys = new ApiKeyServiceClient("BasicHttpBinding_IApiKeyService");
             apikey = apikeys.Create("q@q.q");
         }
 
