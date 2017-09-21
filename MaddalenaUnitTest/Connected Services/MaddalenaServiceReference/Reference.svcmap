@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="994b87c8-bd2f-404f-a8a2-84bd42384be6" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://alpha.mercati.news/ApiService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ApiService.xsd" MetadataType="Schema" ID="33278c31-40ae-4698-abfb-20d9d92e2b91" SourceId="1" SourceUrl="http://alpha.mercati.news/ApiService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ApiService1.xsd" MetadataType="Schema" ID="df44c5fa-3fce-417f-818d-eb034f1ecd07" SourceId="1" SourceUrl="http://alpha.mercati.news/ApiService.svc?xsd=xsd3" />
+    <MetadataFile FileName="ApiService2.xsd" MetadataType="Schema" ID="751e9ce9-8c3d-4e4a-90b2-ce1fc50fca92" SourceId="1" SourceUrl="http://alpha.mercati.news/ApiService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ApiService3.xsd" MetadataType="Schema" ID="699d349d-adbd-4ecc-9896-6f3ac0e4c174" SourceId="1" SourceUrl="http://alpha.mercati.news/ApiService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ApiService.wsdl" MetadataType="Wsdl" ID="18d0a0fa-068b-4553-9bf9-5cf10e938788" SourceId="1" SourceUrl="http://alpha.mercati.news/ApiService.svc?wsdl" />
+    <MetadataFile FileName="ApiService.disco" MetadataType="Disco" ID="d4df2962-f84a-4f10-b254-f0e6ffc98681" SourceId="1" SourceUrl="http://alpha.mercati.news/ApiService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

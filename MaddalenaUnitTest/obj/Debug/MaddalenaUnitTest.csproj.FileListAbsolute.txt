@@ -1,0 +1,16 @@
+D:\Maddalena\API\TEST\MaddalenaUnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+D:\Maddalena\API\TEST\MaddalenaUnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+D:\Maddalena\API\TEST\MaddalenaUnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+D:\Maddalena\API\TEST\MaddalenaUnitTest\bin\Debug\MaddalenaUnitTest.dll.config
+D:\Maddalena\API\TEST\MaddalenaUnitTest\bin\Debug\MaddalenaUnitTest.dll
+D:\Maddalena\API\TEST\MaddalenaUnitTest\bin\Debug\MaddalenaUnitTest.pdb
+D:\Maddalena\API\TEST\MaddalenaUnitTest\bin\Debug\EntityFramework.dll
+D:\Maddalena\API\TEST\MaddalenaUnitTest\bin\Debug\EntityFramework.SqlServer.dll
+D:\Maddalena\API\TEST\MaddalenaUnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+D:\Maddalena\API\TEST\MaddalenaUnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+D:\Maddalena\API\TEST\MaddalenaUnitTest\bin\Debug\EntityFramework.xml
+D:\Maddalena\API\TEST\MaddalenaUnitTest\bin\Debug\EntityFramework.SqlServer.xml
+D:\Maddalena\API\TEST\MaddalenaUnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+D:\Maddalena\API\TEST\MaddalenaUnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+D:\Maddalena\API\TEST\MaddalenaUnitTest\obj\Debug\MaddalenaUnitTest.dll
+D:\Maddalena\API\TEST\MaddalenaUnitTest\obj\Debug\MaddalenaUnitTest.pdb

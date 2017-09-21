@@ -1,0 +1,805 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ApiService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpsBinding_IApiKeyService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="BasicHttpsBinding_IUserService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="BasicHttpsBinding_IGroupService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://alpha.mercati.news/ApiService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://alpha.mercati.news/ApiService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://alpha.mercati.news/ApiService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Maddalena.Public" />
+      <xsd:import schemaLocation="http://alpha.mercati.news/ApiService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Maddalena.Model" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IApiKeyService_Create_InputMessage">
+    <wsdl:part name="parameters" element="tns:Create" />
+  </wsdl:message>
+  <wsdl:message name="IApiKeyService_Create_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApiKeyService_Validate_InputMessage">
+    <wsdl:part name="parameters" element="tns:Validate" />
+  </wsdl:message>
+  <wsdl:message name="IApiKeyService_Validate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_Exist_InputMessage">
+    <wsdl:part name="parameters" element="tns:Exist" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_Exist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExistResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_ByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:ByName" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_ByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_ByEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:ByEmail" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_ByEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ByEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_ByPhoneNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:ByPhoneNumber" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_ByPhoneNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ByPhoneNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGroupService_CreateGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateGroup" />
+  </wsdl:message>
+  <wsdl:message name="IGroupService_CreateGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGroupService_ById_InputMessage">
+    <wsdl:part name="parameters" element="tns:ById" />
+  </wsdl:message>
+  <wsdl:message name="IGroupService_ById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGroupService_UpdateGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateGroup" />
+  </wsdl:message>
+  <wsdl:message name="IGroupService_UpdateGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGroupService_DeleteGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteGroup" />
+  </wsdl:message>
+  <wsdl:message name="IGroupService_DeleteGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGroupService_GroupMembersCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GroupMembersCount" />
+  </wsdl:message>
+  <wsdl:message name="IGroupService_GroupMembersCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GroupMembersCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGroupService_GroupMembers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GroupMembers" />
+  </wsdl:message>
+  <wsdl:message name="IGroupService_GroupMembers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GroupMembersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGroupService_JoinGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:JoinGroup" />
+  </wsdl:message>
+  <wsdl:message name="IGroupService_JoinGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:JoinGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGroupService_LeaveGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:LeaveGroup" />
+  </wsdl:message>
+  <wsdl:message name="IGroupService_LeaveGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LeaveGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGroupService_Recents_InputMessage">
+    <wsdl:part name="parameters" element="tns:Recents" />
+  </wsdl:message>
+  <wsdl:message name="IGroupService_Recents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RecentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGroupService_Tops_InputMessage">
+    <wsdl:part name="parameters" element="tns:Tops" />
+  </wsdl:message>
+  <wsdl:message name="IGroupService_Tops_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TopsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGroupService_List_InputMessage">
+    <wsdl:part name="parameters" element="tns:List" />
+  </wsdl:message>
+  <wsdl:message name="IGroupService_List_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGroupService_OfUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:OfUser" />
+  </wsdl:message>
+  <wsdl:message name="IGroupService_OfUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OfUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGroupService_Post_InputMessage">
+    <wsdl:part name="parameters" element="tns:Post" />
+  </wsdl:message>
+  <wsdl:message name="IGroupService_Post_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PostResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGroupService_Delete_InputMessage">
+    <wsdl:part name="parameters" element="tns:Delete" />
+  </wsdl:message>
+  <wsdl:message name="IGroupService_Delete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGroupService_Ban_InputMessage">
+    <wsdl:part name="parameters" element="tns:Ban" />
+  </wsdl:message>
+  <wsdl:message name="IGroupService_Ban_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BanResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGroupService_MakeModerator_InputMessage">
+    <wsdl:part name="parameters" element="tns:MakeModerator" />
+  </wsdl:message>
+  <wsdl:message name="IGroupService_MakeModerator_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MakeModeratorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGroupService_MakeAdmin_InputMessage">
+    <wsdl:part name="parameters" element="tns:MakeAdmin" />
+  </wsdl:message>
+  <wsdl:message name="IGroupService_MakeAdmin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MakeAdminResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGroupService_MakeOwner_InputMessage">
+    <wsdl:part name="parameters" element="tns:MakeOwner" />
+  </wsdl:message>
+  <wsdl:message name="IGroupService_MakeOwner_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MakeOwnerResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IApiKeyService">
+    <wsdl:operation name="Create">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApiKeyService/Create" message="tns:IApiKeyService_Create_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApiKeyService/CreateResponse" message="tns:IApiKeyService_Create_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Validate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApiKeyService/Validate" message="tns:IApiKeyService_Validate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApiKeyService/ValidateResponse" message="tns:IApiKeyService_Validate_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IUserService">
+    <wsdl:operation name="Exist">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/Exist" message="tns:IUserService_Exist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/ExistResponse" message="tns:IUserService_Exist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/ByName" message="tns:IUserService_ByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/ByNameResponse" message="tns:IUserService_ByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ByEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/ByEmail" message="tns:IUserService_ByEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/ByEmailResponse" message="tns:IUserService_ByEmail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ByPhoneNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/ByPhoneNumber" message="tns:IUserService_ByPhoneNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/ByPhoneNumberResponse" message="tns:IUserService_ByPhoneNumber_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IGroupService">
+    <wsdl:operation name="CreateGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGroupService/CreateGroup" message="tns:IGroupService_CreateGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGroupService/CreateGroupResponse" message="tns:IGroupService_CreateGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGroupService/ById" message="tns:IGroupService_ById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGroupService/ByIdResponse" message="tns:IGroupService_ById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGroupService/UpdateGroup" message="tns:IGroupService_UpdateGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGroupService/UpdateGroupResponse" message="tns:IGroupService_UpdateGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGroupService/DeleteGroup" message="tns:IGroupService_DeleteGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGroupService/DeleteGroupResponse" message="tns:IGroupService_DeleteGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GroupMembersCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGroupService/GroupMembersCount" message="tns:IGroupService_GroupMembersCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGroupService/GroupMembersCountResponse" message="tns:IGroupService_GroupMembersCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GroupMembers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGroupService/GroupMembers" message="tns:IGroupService_GroupMembers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGroupService/GroupMembersResponse" message="tns:IGroupService_GroupMembers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="JoinGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGroupService/JoinGroup" message="tns:IGroupService_JoinGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGroupService/JoinGroupResponse" message="tns:IGroupService_JoinGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeaveGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGroupService/LeaveGroup" message="tns:IGroupService_LeaveGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGroupService/LeaveGroupResponse" message="tns:IGroupService_LeaveGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Recents">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGroupService/Recents" message="tns:IGroupService_Recents_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGroupService/RecentsResponse" message="tns:IGroupService_Recents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Tops">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGroupService/Tops" message="tns:IGroupService_Tops_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGroupService/TopsResponse" message="tns:IGroupService_Tops_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="List">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGroupService/List" message="tns:IGroupService_List_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGroupService/ListResponse" message="tns:IGroupService_List_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OfUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGroupService/OfUser" message="tns:IGroupService_OfUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGroupService/OfUserResponse" message="tns:IGroupService_OfUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Post">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGroupService/Post" message="tns:IGroupService_Post_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGroupService/PostResponse" message="tns:IGroupService_Post_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGroupService/Delete" message="tns:IGroupService_Delete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGroupService/DeleteResponse" message="tns:IGroupService_Delete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Ban">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGroupService/Ban" message="tns:IGroupService_Ban_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGroupService/BanResponse" message="tns:IGroupService_Ban_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MakeModerator">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGroupService/MakeModerator" message="tns:IGroupService_MakeModerator_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGroupService/MakeModeratorResponse" message="tns:IGroupService_MakeModerator_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MakeAdmin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGroupService/MakeAdmin" message="tns:IGroupService_MakeAdmin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGroupService/MakeAdminResponse" message="tns:IGroupService_MakeAdmin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MakeOwner">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGroupService/MakeOwner" message="tns:IGroupService_MakeOwner_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGroupService/MakeOwnerResponse" message="tns:IGroupService_MakeOwner_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IApiKeyService" type="tns:IApiKeyService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Create">
+      <soap:operation soapAction="http://tempuri.org/IApiKeyService/Create" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Validate">
+      <soap:operation soapAction="http://tempuri.org/IApiKeyService/Validate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IUserService" type="tns:IUserService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Exist">
+      <soap:operation soapAction="http://tempuri.org/IUserService/Exist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ByName">
+      <soap:operation soapAction="http://tempuri.org/IUserService/ByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ByEmail">
+      <soap:operation soapAction="http://tempuri.org/IUserService/ByEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ByPhoneNumber">
+      <soap:operation soapAction="http://tempuri.org/IUserService/ByPhoneNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IGroupService" type="tns:IGroupService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateGroup">
+      <soap:operation soapAction="http://tempuri.org/IGroupService/CreateGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ById">
+      <soap:operation soapAction="http://tempuri.org/IGroupService/ById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGroup">
+      <soap:operation soapAction="http://tempuri.org/IGroupService/UpdateGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGroup">
+      <soap:operation soapAction="http://tempuri.org/IGroupService/DeleteGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GroupMembersCount">
+      <soap:operation soapAction="http://tempuri.org/IGroupService/GroupMembersCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GroupMembers">
+      <soap:operation soapAction="http://tempuri.org/IGroupService/GroupMembers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JoinGroup">
+      <soap:operation soapAction="http://tempuri.org/IGroupService/JoinGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeaveGroup">
+      <soap:operation soapAction="http://tempuri.org/IGroupService/LeaveGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Recents">
+      <soap:operation soapAction="http://tempuri.org/IGroupService/Recents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tops">
+      <soap:operation soapAction="http://tempuri.org/IGroupService/Tops" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="List">
+      <soap:operation soapAction="http://tempuri.org/IGroupService/List" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OfUser">
+      <soap:operation soapAction="http://tempuri.org/IGroupService/OfUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Post">
+      <soap:operation soapAction="http://tempuri.org/IGroupService/Post" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <soap:operation soapAction="http://tempuri.org/IGroupService/Delete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ban">
+      <soap:operation soapAction="http://tempuri.org/IGroupService/Ban" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MakeModerator">
+      <soap:operation soapAction="http://tempuri.org/IGroupService/MakeModerator" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MakeAdmin">
+      <soap:operation soapAction="http://tempuri.org/IGroupService/MakeAdmin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MakeOwner">
+      <soap:operation soapAction="http://tempuri.org/IGroupService/MakeOwner" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpsBinding_IApiKeyService" type="tns:IApiKeyService">
+    <wsp:PolicyReference URI="#BasicHttpsBinding_IApiKeyService_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Create">
+      <soap:operation soapAction="http://tempuri.org/IApiKeyService/Create" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Validate">
+      <soap:operation soapAction="http://tempuri.org/IApiKeyService/Validate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpsBinding_IUserService" type="tns:IUserService">
+    <wsp:PolicyReference URI="#BasicHttpsBinding_IUserService_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Exist">
+      <soap:operation soapAction="http://tempuri.org/IUserService/Exist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ByName">
+      <soap:operation soapAction="http://tempuri.org/IUserService/ByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ByEmail">
+      <soap:operation soapAction="http://tempuri.org/IUserService/ByEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ByPhoneNumber">
+      <soap:operation soapAction="http://tempuri.org/IUserService/ByPhoneNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpsBinding_IGroupService" type="tns:IGroupService">
+    <wsp:PolicyReference URI="#BasicHttpsBinding_IGroupService_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateGroup">
+      <soap:operation soapAction="http://tempuri.org/IGroupService/CreateGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ById">
+      <soap:operation soapAction="http://tempuri.org/IGroupService/ById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGroup">
+      <soap:operation soapAction="http://tempuri.org/IGroupService/UpdateGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGroup">
+      <soap:operation soapAction="http://tempuri.org/IGroupService/DeleteGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GroupMembersCount">
+      <soap:operation soapAction="http://tempuri.org/IGroupService/GroupMembersCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GroupMembers">
+      <soap:operation soapAction="http://tempuri.org/IGroupService/GroupMembers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JoinGroup">
+      <soap:operation soapAction="http://tempuri.org/IGroupService/JoinGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeaveGroup">
+      <soap:operation soapAction="http://tempuri.org/IGroupService/LeaveGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Recents">
+      <soap:operation soapAction="http://tempuri.org/IGroupService/Recents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tops">
+      <soap:operation soapAction="http://tempuri.org/IGroupService/Tops" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="List">
+      <soap:operation soapAction="http://tempuri.org/IGroupService/List" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OfUser">
+      <soap:operation soapAction="http://tempuri.org/IGroupService/OfUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Post">
+      <soap:operation soapAction="http://tempuri.org/IGroupService/Post" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <soap:operation soapAction="http://tempuri.org/IGroupService/Delete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ban">
+      <soap:operation soapAction="http://tempuri.org/IGroupService/Ban" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MakeModerator">
+      <soap:operation soapAction="http://tempuri.org/IGroupService/MakeModerator" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MakeAdmin">
+      <soap:operation soapAction="http://tempuri.org/IGroupService/MakeAdmin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MakeOwner">
+      <soap:operation soapAction="http://tempuri.org/IGroupService/MakeOwner" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ApiService">
+    <wsdl:port name="BasicHttpBinding_IApiKeyService" binding="tns:BasicHttpBinding_IApiKeyService">
+      <soap:address location="http://alpha.mercati.news/ApiService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IUserService" binding="tns:BasicHttpBinding_IUserService">
+      <soap:address location="http://alpha.mercati.news/ApiService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IGroupService" binding="tns:BasicHttpBinding_IGroupService">
+      <soap:address location="http://alpha.mercati.news/ApiService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpsBinding_IApiKeyService" binding="tns:BasicHttpsBinding_IApiKeyService">
+      <soap:address location="https://alpha.mercati.news/ApiService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpsBinding_IUserService" binding="tns:BasicHttpsBinding_IUserService">
+      <soap:address location="https://alpha.mercati.news/ApiService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpsBinding_IGroupService" binding="tns:BasicHttpsBinding_IGroupService">
+      <soap:address location="https://alpha.mercati.news/ApiService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
